@@ -10,18 +10,40 @@ const student = {
   rollno: 12,
 };
 
+function foo(obj){
+  console.log(Object.keys(obj));
+  console.log(Object.entries(obj));
+}
+//foo(student);
 /**
  * 2
  * Write a function to delete the rollno property from the following object.
  * Print the object before AND after deleting the property.
  */
+function deleteRollNoKey(obj){
+  console.log(obj);
+  obj['rollno'] = undefined;
+  delete obj.rollno;
+  console.log(obj);
+
+}
+//deleteRollNoKey(student);
 
 /**
  * 3
  *
  * Write a function to get the length of a  object.
  */
-
+function lengthOfObject(obj){
+  let counter=0;
+  for(let i in obj){ //this is for OBJECTS!
+    counter++;
+    //console.log(i + ',');
+  }
+  return counter;
+  //return Object.keys(obj).length;
+}
+//console.log(lengthOfObject(student));
 /**
  * 4
  *
@@ -46,6 +68,20 @@ const library = [
   },
 ];
 
+function printLibrary(arr){
+
+  for( let x of arr){
+    console.log(`${x.title}, ${x.author}, ${x.readingStatus}`);
+  }
+}
+//printLibrary(library);
+
+function mock(arr){
+  let x={};
+  for(let i of arr){
+    //how do i add more than 1 object to an object?!
+  }
+}
 /**
  * 5
  *
@@ -53,7 +89,14 @@ const library = [
  * to calculate and return the area and perimeter of a circle.
  *
  */
-
+function areaAndPerimeter(radius){
+  let area=0;
+  let perimeter=0;
+  area= Math.PI * (radius **2) //A = PI * r^2
+  perimeter= 2 * Math.PI * radius ///P = 2* PI * r
+  return `Area: ${area} \nPerimeter: ${perimeter}`;
+}
+//console.log(areaAndPerimeter(5));
 /**
  * 6
  * 
@@ -78,6 +121,50 @@ const library = [
       },
     ]
 */
+
+let mockObject =[
+  {
+    author: "Suzanne Collins",
+    libraryID: 3245,
+    title: "Mockingjay: The Final Book of The Hunger Games"
+  },
+  {
+    author: "Walter Isaacson",
+    libraryID: 4264,
+    title: "Steve Jobs"
+  },
+  {
+    author: "Bill Gates",
+    libraryID: 1254,
+    title: "The Road Ahead"
+  }
+];
+
+// function findMinId(arr){
+//   let min= arr[0];
+//   for(let obj of arr){
+//     if(min.libraryID > obj.libraryID){
+//       min= obj;
+//     }
+//   }
+//   return min;
+// }
+function sortArray(arr) {
+    console.log(arr);
+    for (let i = 0; i < arr.length - 1; i++) {
+      for (let j = i + 1; j < arr.length; j++) {
+        if (arr[i].libraryID > arr[j].libraryID) {
+          let temp = arr[i];
+          arr[i] = arr[j];
+          arr[j] = temp;
+        }
+      }
+    }
+    console.log(arr);
+}
+
+
+console.log(sortObjects(mockObject));
 
 /**
  * 7

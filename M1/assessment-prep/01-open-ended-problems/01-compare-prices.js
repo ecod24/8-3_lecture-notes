@@ -10,6 +10,17 @@
 let priceOfHouse = "€1.500.000";
 let priceOfCar = "€20.000";
 
+priceOfCar= priceOfCar.substring(1, priceOfCar.length);
+priceOfHouse= priceOfHouse.substring(1, priceOfHouse.length);
+//console.log(priceOfCar);
+//remove periods
+priceOfCar= priceOfCar.replaceAll('.', '');
+priceOfHouse= priceOfHouse.replaceAll('.', '');
+//console.log(priceOfHouse);
+
+priceOfCar= Number(priceOfCar);
+priceOfHouse= Number(priceOfHouse);
+
 if (priceOfHouse > priceOfCar) {
   console.log("The house is more expensive");
 } else {
